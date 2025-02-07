@@ -49,7 +49,7 @@ void main() {
     // 2) Enqueue root node (tree itself) to the queue
     queue.enqueue(tree);
 
-    System.out.println("Tree (Depth First):");
+    System.out.println("Tree (Breadth First):");
 
     // Current node we are looking at during iterations
     ArrayListTree<String> node;

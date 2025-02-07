@@ -42,6 +42,22 @@ void main() {
     tree.getChildren().get(1).getChildren().get(1).add("Level 1B 2B 3B");
 
 
+    /*
+    for (var node : tree) {
+        System.out.println(node);
+    }
+    */
+
+    Iterator<String> depthFirstIterator = tree.depthFirst();
+
+    while (depthFirstIterator.hasNext()) {
+        var node = depthFirstIterator.next();
+
+        System.out.println(node);
+    }
+
+
+    /*
     //# Depth First Traversal implementation
     // 1) Start with an empty stack
     var stack = new ArrayListStack<ArrayListTree<String>>();
@@ -65,4 +81,5 @@ void main() {
             stack.push(childNode);
         }
     }
+    */
 }
