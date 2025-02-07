@@ -6,6 +6,17 @@
 
 Make sure you have IntelliJ 2024 or 2025EAP installed to make use of newer Java JDK features in this repository.
 
+--
+
+# Getting started
+
+In IntelliJ, create a new project from version control, using the following URL:
+- `https://github.com/kristiania/PG4200`
+
+---
+
+This repository uses Java 23 JDK.
+
 Use the `src/java/sandbox/` directory to test and explore data structures and algorithms.
 
 **Work in progress**, expect commits often, so make sure to git pull often!
