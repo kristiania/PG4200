@@ -99,6 +99,15 @@ public class SinglyLinkedList<E>
         return node;
     }
 
+    public int indexOf(E element) {
+        throw new UnsupportedOperationException();
+    }
+
+
+    public int lastIndexOf(E element) {
+        throw new UnsupportedOperationException();
+    }
+
     @Override
     public void add(E element) {
         this.add(this.createNode(element));
@@ -177,6 +186,9 @@ public class SinglyLinkedList<E>
         if (!this.isEmpty()) {
             if (this.head.next != null) {
                 this.head = this.head.next;
+            }
+            else {
+                this.head = null;
             }
         }
     }

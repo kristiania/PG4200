@@ -40,6 +40,10 @@ public class ArrayListTree<E>
         return this.value;
     }
 
+    public ArrayList<ArrayListTree<E>> getChildren() {
+        return this.children;
+    }
+
 
     //# Insertion
     public void add(E element) {

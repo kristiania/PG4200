@@ -37,6 +37,14 @@ public class ArrayList<E>
         return this.data.get(index);
     }
 
+    public E getFirst() {
+        return this.data.getFirst();
+    }
+
+    public E getLast() {
+        return this.data.getLast();
+    }
+
     public int indexOf(E element) {
         return this.data.indexOf(element);
     }
@@ -59,6 +67,10 @@ public class ArrayList<E>
 
     public void add(List<E> elements) {
         this.data.addAll(elements);
+    }
+
+    public int size() {
+        return this.data.size();
     }
 
     @Override

@@ -21,11 +21,11 @@ public class ArrayListStack<E>
             throw new EmptyStackException();
         }
 
-        var output = this.data.getFirst();
+        var output = this.data.getLast();
 
-        this.data.removeFirst();
+        this.data.removeLast();
 
-        return this.data.getFirst();
+        return output;
     }
 
     public E peek() {
