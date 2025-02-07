@@ -1,5 +1,7 @@
 package data.structures.list;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Iterator;
 import java.util.Optional;
 
@@ -252,7 +254,7 @@ public class SinglyLinkedList<E>
 
     //# Overrides
     @Override
-    public Iterator<E> iterator() {
+    public @NotNull Iterator<E> iterator() {
         var head = this.getFirstNode();
 
         return new Iterator<E>() {

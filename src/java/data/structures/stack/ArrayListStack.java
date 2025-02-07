@@ -33,7 +33,7 @@ public class ArrayListStack<E>
             throw new EmptyStackException();
         }
 
-        return this.data.getFirst();
+        return this.data.getLast();
     }
 
     public int size() {

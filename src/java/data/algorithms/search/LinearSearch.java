@@ -1,6 +1,7 @@
 package data.algorithms.search;
 
 import data.structures.list.SinglyLinkedList;
+import data.structures.stack.ArrayListStack;
 
 
 public class LinearSearch
@@ -22,5 +23,43 @@ public class LinearSearch
 
         // 4) If nothing was found going through each node, return false
         return false;
+    }
+
+
+    static <E> boolean search(ArrayListStack<E> haystack, E needle) {
+        var buffer = new ArrayListStack<E>();
+
+        boolean found = false;
+
+        while (true) {
+            buffer.push(haystack.pop());
+
+            if (buffer.peek().equals(needle)) {
+                found = true;
+                break;
+            }
+
+            if (haystack.isEmpty()) {
+                break;
+            }
+        }
+
+        while (!buffer.isEmpty()) {
+            haystack.push(buffer.pop());
+        }
+
+        return found;
+    }
+
+    public static void main(String[] args) {
+        var stack = new ArrayListStack<>();
+
+        stack.push(3);
+        stack.push(4);
+        stack.push(123);
+        stack.push(23);
+        stack.push(3);
+
+        System.out.println(LinearSearch.search(stack, 4));
     }
 }
