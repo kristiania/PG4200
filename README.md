@@ -23,6 +23,14 @@ Use the `src/java/sandbox/` directory to test and explore data structures and al
 
 ---
 
+## @NotNull annotations
+
+If you receive an error about @NotNull not being found on an import line,
+find where it is being used in the code (marked as red) and hover over it,
+and select the option "add 'annotations' to classpath"
+
+---
+
 ## Contributions
 
 If you want to contribute implementations, fixes or examples, do so as following:
