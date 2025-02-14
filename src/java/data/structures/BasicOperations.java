@@ -1,4 +1,4 @@
-package java.data.structures;
+package data.structures;
 
 
 import java.util.function.Predicate;

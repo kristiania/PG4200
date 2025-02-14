@@ -53,9 +53,4 @@ public interface ListImplementation<E>
             consumer.accept(element);
         }
     }
-
-
-    //# Comparison
-    boolean equals(Object object);
-    int hashCode();
 }

@@ -3,34 +3,31 @@ package data.structures.tree;
 import data.structures.list.ArrayList;
 import data.structures.queue.SinglyLinkedListLinearQueue;
 import data.structures.stack.SinglyLinkedListStack;
-import data.structures.tree.node.TreeNode;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.jetbrains.annotations.NotNull;
 
 
-public class ArrayListTree<E>
-        extends TreeNode<E>
-        implements TreeImplementation<E, ArrayListTree<E>>
+public class ArrayListNodeTree<E>
+        implements TreeImplementation<E, ArrayListNodeTree<E>>
 {
     //# Fields
     private final E value;
-    transient private final ArrayList<ArrayListTree<E>> children = new ArrayList<>();
+    transient private final ArrayList<ArrayListNodeTree<E>> children = new ArrayList<>();
 
 
     //# Constructors
-    public ArrayListTree(E value) {
+    public ArrayListNodeTree(E value) {
         this.value = value;
     }
 
-    public ArrayListTree(E value, @NotNull List<E> children) {
+    public ArrayListNodeTree(E value, @NotNull List<E> children) {
         this(value);
 
         for (var element : children) {
-            this.children.add(new ArrayListTree<>(element));
+            this.children.add(new ArrayListNodeTree<>(element));
         }
     }
 
@@ -40,14 +37,18 @@ public class ArrayListTree<E>
         return this.value;
     }
 
-    public ArrayList<ArrayListTree<E>> getChildren() {
+    public ArrayList<ArrayListNodeTree<E>> getChildren() {
         return this.children;
     }
 
 
     //# Insertion
-    public void add(E element) {
-        this.children.add(new ArrayListTree<>(element));
+    public ArrayListNodeTree<E> insert(E element) {
+        var child = new ArrayListNodeTree<>(element);
+
+        this.children.add(child);
+
+        return child;
     }
 
 
@@ -58,7 +59,7 @@ public class ArrayListTree<E>
     }
 
     public Iterator<E> depthFirst() {
-        var stack = new SinglyLinkedListStack<ArrayListTree<E>>();
+        var stack = new SinglyLinkedListStack<ArrayListNodeTree<E>>();
 
         stack.push(this);
 
@@ -81,7 +82,7 @@ public class ArrayListTree<E>
 
 
     public Iterator<E> breadthFirst() {
-        var queue = new SinglyLinkedListLinearQueue<ArrayListTree<E>>();
+        var queue = new SinglyLinkedListLinearQueue<ArrayListNodeTree<E>>();
 
         queue.enqueue(this);
 

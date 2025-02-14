@@ -57,12 +57,12 @@ public class ArrayList<E>
         this.data.add(element);
     }
 
-    public void removeFirst() {
-        this.data.removeFirst();
+    public E removeFirst() {
+        return this.data.removeFirst();
     }
 
-    public void removeLast() {
-        this.data.removeLast();
+    public E removeLast() {
+        return this.data.removeLast();
     }
 
     public void add(List<E> elements) {
@@ -71,6 +71,11 @@ public class ArrayList<E>
 
     public int size() {
         return this.data.size();
+    }
+
+    @Override
+    public void add(int index, E element) {
+        this.data.add(index, element);
     }
 
     @Override

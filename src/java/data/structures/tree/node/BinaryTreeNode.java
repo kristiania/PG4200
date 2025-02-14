@@ -1,4 +1,7 @@
 package data.structures.tree.node;
 
-public class BinaryTreeNode {
+public interface BinaryTreeNode<T> {
+    BinaryTreeNode<T> getLeft();
+    BinaryTreeNode<T> getRight();
+    T getData();
 }

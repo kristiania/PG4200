@@ -1,5 +1,5 @@
 import data.structures.queue.SinglyLinkedListLinearQueue;
-import data.structures.tree.ArrayListTree;
+import data.structures.tree.ArrayListNodeTree;
 
 void main() {
     /*
@@ -20,31 +20,31 @@ void main() {
                     ├── Level 1B 2B 3A
                     └── Level 1B 2B 3B
      */
-    var tree = new ArrayListTree<>("Root");
+    var tree = new ArrayListNodeTree<>("Root");
 
-    tree.add("Level 1A");
-    tree.add("Level 1B");
+    tree.insert("Level 1A");
+    tree.insert("Level 1B");
 
-    tree.getChildren().get(0).add("Level 1A 2A");
-    tree.getChildren().get(0).getChildren().get(0).add("Level 1A 2A 3A");
-    tree.getChildren().get(0).getChildren().get(0).add("Level 1A 2A 3B");
+    tree.getChildren().get(0).insert("Level 1A 2A");
+    tree.getChildren().get(0).getChildren().get(0).insert("Level 1A 2A 3A");
+    tree.getChildren().get(0).getChildren().get(0).insert("Level 1A 2A 3B");
 
-    tree.getChildren().get(0).add("Level 1A 2B");
-    tree.getChildren().get(0).getChildren().get(1).add("Level 1A 2B 3A");
-    tree.getChildren().get(0).getChildren().get(1).add("Level 1A 2B 3B");
+    tree.getChildren().get(0).insert("Level 1A 2B");
+    tree.getChildren().get(0).getChildren().get(1).insert("Level 1A 2B 3A");
+    tree.getChildren().get(0).getChildren().get(1).insert("Level 1A 2B 3B");
 
-    tree.getChildren().get(1).add("Level 1B 2A");
-    tree.getChildren().get(1).getChildren().get(0).add("Level 1B 2A 3A");
-    tree.getChildren().get(1).getChildren().get(0).add("Level 1B 2A 3B");
+    tree.getChildren().get(1).insert("Level 1B 2A");
+    tree.getChildren().get(1).getChildren().get(0).insert("Level 1B 2A 3A");
+    tree.getChildren().get(1).getChildren().get(0).insert("Level 1B 2A 3B");
 
-    tree.getChildren().get(1).add("Level 1B 2B");
-    tree.getChildren().get(1).getChildren().get(1).add("Level 1B 2B 3A");
-    tree.getChildren().get(1).getChildren().get(1).add("Level 1B 2B 3B");
+    tree.getChildren().get(1).insert("Level 1B 2B");
+    tree.getChildren().get(1).getChildren().get(1).insert("Level 1B 2B 3A");
+    tree.getChildren().get(1).getChildren().get(1).insert("Level 1B 2B 3B");
 
 
     //# Breadth-First Traversal implementation
     // 1) Start with an empty queue
-    var queue = new SinglyLinkedListLinearQueue<ArrayListTree<String>>();
+    var queue = new SinglyLinkedListLinearQueue<ArrayListNodeTree<String>>();
 
     // 2) Enqueue root node (tree itself) to the queue
     queue.enqueue(tree);
@@ -52,7 +52,7 @@ void main() {
     System.out.println("Tree (Breadth First):");
 
     // Current node we are looking at during iterations
-    ArrayListTree<String> node;
+    ArrayListNodeTree<String> node;
 
     // 3) Go through each node in the stack as long as it is not empty
     while (!queue.isEmpty()) {
