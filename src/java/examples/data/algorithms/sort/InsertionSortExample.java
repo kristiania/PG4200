@@ -1,4 +1,5 @@
 import static data.Helper.Array.arrayString;
+import static data.Helper.Array.swap;
 import static data.Helper.IO.printlnf;
 import static data.RNG.randomIntegers;
 
@@ -20,12 +21,46 @@ import static data.RNG.randomIntegers;
 void main() {
     var numbers = randomIntegers(10, 0, 99);
 
-    var marginLeft = 16;
-    var marginRight = 16;
-    var prefix = "int[] numbers = ";
-    var suffix = ";";
+    printlnf("int[] numbers = ", "%s", ";", arrayString(numbers));
 
-    printlnf(marginLeft, prefix, "%s", suffix, marginRight,arrayString(numbers));
+    quickSort(numbers);
+
+    printlnf(16, "", "%s", ";", 1, arrayString(numbers));
 
 
+}
+
+void quickSort(int[] numbers) {
+    quickSort(numbers, 0, numbers.length - 1 );
+}
+
+void quickSort(int[] numbers, int low, int high) {
+    if (low >= 0 && low < high) {
+        var pivot = partition(numbers, low, high);
+
+        quickSort(numbers, low, pivot);
+        quickSort(numbers, pivot + 1, high);
+    }
+}
+
+int partition(int[] numbers, int low, int high) {
+    var pivot = numbers[low];
+    var left = low - 1;
+    var right = high + 1;
+
+    while (true) {
+        do {
+            left = left + 1;
+        } while (numbers[left] < pivot);
+
+        do {
+            right = right - 1;
+        } while (numbers[right] > pivot);
+
+        if (left >= right) {
+            return right;
+        }
+
+        swap(numbers, left, right);
+    }
 }
