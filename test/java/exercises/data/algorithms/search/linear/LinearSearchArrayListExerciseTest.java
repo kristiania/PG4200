@@ -1,5 +1,6 @@
 package exercises.data.algorithms.search.linear;
 
+import data.structures.list.ArrayList;
 import exercises.ExerciseTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +12,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.junitpioneer.jupiter.DisableIfTestFails;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
