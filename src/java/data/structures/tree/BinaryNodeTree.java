@@ -1,7 +1,5 @@
 package data.structures.tree;
 
-import org.jetbrains.annotations.NotNull;
-
 import data.structures.Wrapper;
 import data.structures.tree.node.BinaryTreeNode;
 import data.structures.stack.SinglyLinkedListStack;
@@ -10,6 +8,10 @@ import java.util.Iterator;
 import java.util.function.Consumer;
 
 
+/**
+ *
+ * @param <T>
+ */
 public class BinaryNodeTree<T extends Comparable<? super T>>
         implements BinaryTreeImplementation<T>
 {
@@ -74,7 +76,7 @@ public class BinaryNodeTree<T extends Comparable<? super T>>
         }
 
         @Override
-        public int compareTo(@NotNull Node node) {
+        public int compareTo(Node node) {
             return this.data.compareTo(node.data);
         }
     }
@@ -151,7 +153,7 @@ public class BinaryNodeTree<T extends Comparable<? super T>>
 
     //# Traversal
     @Override
-    public @NotNull Iterator<T> iterator() {
+    public Iterator<T> iterator() {
         var iterator = this.preOrderIterator();
 
         return new Iterator<T>() {

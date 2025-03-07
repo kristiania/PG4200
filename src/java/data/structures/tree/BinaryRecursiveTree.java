@@ -1,7 +1,5 @@
 package data.structures.tree;
 
-import org.jetbrains.annotations.NotNull;
-
 import data.structures.stack.SinglyLinkedListStack;
 import data.structures.tree.node.BinaryTreeNode;
 
@@ -11,7 +9,7 @@ import java.util.Iterator;
 
 
 public class BinaryRecursiveTree<T extends Comparable<? super T>>
-        implements BinaryTreeNode, Comparable<BinaryRecursiveTree<T>>
+        implements BinaryTreeNode<T>, Comparable<BinaryRecursiveTree<T>>
 {
     //# Fields
     private final T data;
@@ -163,7 +161,7 @@ public class BinaryRecursiveTree<T extends Comparable<? super T>>
 
     //# Overrides
     @Override
-    public int compareTo(@NotNull BinaryRecursiveTree<T> node) {
+    public int compareTo(BinaryRecursiveTree<T> node) {
         return this.getData().compareTo(node.getData());
     }
 }

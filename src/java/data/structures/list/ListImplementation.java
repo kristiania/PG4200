@@ -1,7 +1,5 @@
 package data.structures.list;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.lang.Iterable;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -44,7 +42,7 @@ public interface ListImplementation<E>
     //# Search operations
     int indexOf(E element);
     int lastIndexOf(E element);
-    @NotNull Iterator<E> iterator();
+    Iterator<E> iterator();
 
 
     //# Traversal operations

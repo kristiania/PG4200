@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="junit.pioneer" type="repository">
+    <properties maven-id="org.junit-pioneer:junit-pioneer:RELEASE" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/junit-pioneer-2.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-jupiter-api-5.11.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentest4j-1.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-platform-commons-1.11.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/apiguardian-api-1.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-jupiter-params-5.11.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-platform-launcher-1.11.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-platform-engine-1.11.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/junit-pioneer-2.3.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-jupiter-api-5.11.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentest4j-1.3.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-platform-commons-1.11.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/apiguardian-api-1.1.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-jupiter-params-5.11.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-platform-launcher-1.11.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-platform-engine-1.11.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

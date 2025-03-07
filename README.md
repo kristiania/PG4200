@@ -6,7 +6,9 @@
 
 Make sure you have IntelliJ 2024 or 2025EAP installed to make use of newer Java JDK features in this repository.
 
---
+Using `JetBrains Toolbox` to manage versions of IntelliJ is recommended. 
+
+---
 
 # Getting started
 
@@ -23,11 +25,62 @@ Use the `src/java/sandbox/` directory to test and explore data structures and al
 
 ---
 
-## @NotNull annotations
+## Directory Structure
 
-If you receive an error about @NotNull not being found on an import line,
-find where it is being used in the code (marked as red) and hover over it,
-and select the option "add 'annotations' to classpath"
+> `./input/`
+> 
+> Example input
+
+> `./data/algoritms/`
+> 
+> 
+
+> `./data/structures/`
+> 
+> - `array/`
+>   - `StaticArray`
+> - `Graph`
+> - `List`
+>   - `ArrayList`
+>   - `SinglyLinkedList`
+>   - `DoublyLinkedList`
+>   - `CircularSinglyLinkedList`
+>   - `CircularDoublyLinkedList`
+> - `Stack`
+>   - `ArrayListStack`
+> - `Tree`
+>   - `BinaryNodeTree`
+> - `Queue`
+>   - `ArrayListLinearQueue`
+>   - `CircularQueue`
+>   - `PriorityQueue`
+>   - `Deque`
+
+---
+
+> PS! `DSA` is short for `Data Structures and Algorithms`
+
+---
+
+### Programs vs. Classes
+
+Using the new language preview feature in JDK 23,
+programs in this repository strictly follows the following code structure:
+
+```java
+void main() {
+    // program code
+}
+```
+
+A program ...
+- does not have a `package`-statement at the top
+- does not contain a public class declaration
+- is meant to be run a program that uses data structures and algorithms within this repository
+
+Use the `src/java/sandbox/`-directory to write your own programs.
+
+Check out `src/jave/examples/sandbox/Program.java` for an example. 
 
 ---
 

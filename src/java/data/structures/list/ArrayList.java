@@ -1,10 +1,9 @@
 package data.structures.list;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+
 
 /*
     This is a "wrapper" around java.util.ArrayList!
@@ -73,13 +72,17 @@ public class ArrayList<E>
         return this.data.size();
     }
 
+    public void clear() {
+        this.data.clear();
+    }
+
     @Override
     public void add(int index, E element) {
         this.data.add(index, element);
     }
 
     @Override
-    public @NotNull Iterator<E> iterator() {
+    public Iterator<E> iterator() {
         return this.data.listIterator(0);
     }
 }

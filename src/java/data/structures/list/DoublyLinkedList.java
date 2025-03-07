@@ -1,11 +1,8 @@
 package data.structures.list;
 
-import org.jetbrains.annotations.NotNull;
-
-import data.structures.queue.QueueImplementation;
+import data.structures.queue.implementation.QueueImplementation;
 import data.structures.queue.SinglyLinkedListLinearQueue;
 
-import java.util.Optional;
 import java.util.Iterator;
 import java.util.function.BiConsumer;
 import java.util.function.Predicate;
@@ -43,7 +40,7 @@ public class DoublyLinkedList<E>
         }
 
         @Override
-        public @NotNull Iterator<Node> iterator() {
+        public Iterator<Node> iterator() {
             return this.iteratorNodesNext();
         }
 

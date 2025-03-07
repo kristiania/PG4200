@@ -1,3 +1,4 @@
+import data.structures.stack.ArrayListStack;
 import data.structures.tree.ArrayListNodeTree;
 
 void main() {
@@ -41,6 +42,7 @@ void main() {
     tree.getChildren().get(1).getChildren().get(1).insert("Level 1B 2B 3B");
 
 
+    /*
     Iterator<String> depthFirstIterator = tree.depthFirst();
 
     while (depthFirstIterator.hasNext()) {
@@ -48,12 +50,11 @@ void main() {
 
         System.out.println(node);
     }
+    */
 
-
-    /*
     //# Depth First Traversal implementation
     // 1) Start with an empty stack
-    var stack = new ArrayListStack<ArrayListTree<String>>();
+    var stack = new ArrayListStack<ArrayListNodeTree<String>>();
 
     // 2) Push root node (tree itself) to the stack
     stack.push(tree);
@@ -61,7 +62,7 @@ void main() {
     System.out.println("Tree (Depth First):");
 
     // Current node we are looking at during iterations
-    ArrayListTree<String> node;
+    ArrayListNodeTree<String> node;
 
     // 3) Go through each node in the stack as long as it is not empty
     while (!stack.isEmpty()) {
@@ -74,5 +75,4 @@ void main() {
             stack.push(childNode);
         }
     }
-    */
 }

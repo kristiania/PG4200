@@ -7,8 +7,6 @@ import data.structures.stack.SinglyLinkedListStack;
 import java.util.Iterator;
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
-
 
 public class ArrayListNodeTree<E>
         implements TreeImplementation<E, ArrayListNodeTree<E>>
@@ -23,7 +21,7 @@ public class ArrayListNodeTree<E>
         this.value = value;
     }
 
-    public ArrayListNodeTree(E value, @NotNull List<E> children) {
+    public ArrayListNodeTree(E value, List<E> children) {
         this(value);
 
         for (var element : children) {
@@ -54,7 +52,7 @@ public class ArrayListNodeTree<E>
 
     //# Traversal
     @Override
-    public @NotNull Iterator<E> iterator() {
+    public Iterator<E> iterator() {
         return this.depthFirst();
     }
 

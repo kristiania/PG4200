@@ -1,69 +1,124 @@
 package data.structures.list;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Iterator;
 import java.util.Optional;
 
-public class SinglyLinkedList<E>
-        implements ListImplementation<E>
+
+/**
+ * Implementation of a Singly Linked List
+ *
+ *  The linked list itself only holds one reference to the first node as `head`,
+ *  and this reference is used for initial point of traversal.
+ *
+ * @param <T> Which type of data stored in the underlying data storage (nodes)
+ */
+public class SinglyLinkedList<T>
+        implements ListImplementation<T>
 {
     //# Inner classes
-    public class Node<T>
+    /**
+     *  As Inner Class instances holds a reference to the Outer Class,
+     *  this is used to link nodes to the linked list that created the nodes
+     */
+    public class Node
     {
         //# Node::Fields
+        /** Data contained within the bode */
         protected T data;
-        protected Node<T> next = null;
+        /** A reference to the next node this points to, null if no next node */
+        protected Node next = null;
 
 
         //# Node::Constructors
+
+        /**
+         * Constructs a SinglyLinkedList::Node instance,
+         * private so only the linked list itself can invoke the constructor
+         *
+         * @param element Data value to be stored within the node
+         */
         private Node(T element) {
             this.data = element;
         }
 
 
         //# Node::Methods
+
+        /**
+         * Returns the data value contained within this node
+         *
+         * @return Data value
+         */
         public T getData() {
             return this.data;
         }
 
-        public Node<T> getNextNode() {
+        /**
+         * Return the next node that this node references, null if none available
+         *
+         * @return Node | null
+         */
+        public Node getNextNode() {
             return this.next;
         }
 
+        /**
+         * Returns whether this node is the first node in the linked list or not
+         *
+         * @return boolean
+         */
         public boolean isFirst() {
             return SinglyLinkedList.this.head == this;
         }
 
+        /**
+         * Returns whether this node is the last node in the linked list or not
+         *
+         * @return boolean
+         */
         public boolean isLast() {
             return this.next == null;
         }
 
-        public SinglyLinkedList<E> getLinkedList() {
+        /**
+         * Sets this node's next reference to the provided node
+         *
+         * @param node Node | null
+         */
+        private void setNext(Node node) {
+            this.next = node;
+        }
+
+        /**
+         * Returns a reference to the linked list this node stems from
+         *
+         * @return SinglyLinkedList
+         */
+        public SinglyLinkedList<T> getLinkedList() {
             return SinglyLinkedList.this;
         }
     }
 
 
     //# Fields
-    private Node<E> head = null;
+    private Node head = null;
 
 
     //# Constructors
     public SinglyLinkedList() {}
 
-    public SinglyLinkedList(E element) {
+    public SinglyLinkedList(T element) {
         this.head = this.createNode(element);
     }
 
 
     //# Methods
-    public Node<E> createNode(E element) {
-        return this.new Node<>(element);
+    public Node createNode(T element) {
+        return this.new Node(element);
     }
 
     @Override
-    public E get(int index) {
+    public T get(int index) {
         throw new UnsupportedOperationException();
     }
 
@@ -87,11 +142,11 @@ public class SinglyLinkedList<E>
         return this.head == null;
     }
 
-    public Node<E> getFirstNode() {
+    public Node getFirstNode() {
         return this.head;
     }
 
-    public Node<E> getLastNode() {
+    public Node getLastNode() {
         var node = this.head;
 
         while (node.next != null) {
@@ -101,29 +156,29 @@ public class SinglyLinkedList<E>
         return node;
     }
 
-    public int indexOf(E element) {
+    public int indexOf(T element) {
         throw new UnsupportedOperationException();
     }
 
 
-    public int lastIndexOf(E element) {
+    public int lastIndexOf(T element) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void add(E element) {
+    public void add(T element) {
         this.add(this.createNode(element));
     }
 
-    public void add(Node<E> node) {
+    public void add(Node node) {
         this.insertLast(node);
     }
 
-    public void insertFirst(E element) {
+    public void insertFirst(T element) {
         this.insertFirst(this.createNode(element));
     }
 
-    public void insertFirst(Node<E> node) {
+    public void insertFirst(Node node) {
         if (this.created(node)) {
             if (!this.isEmpty()) {
                 node.next = this.head;
@@ -133,11 +188,11 @@ public class SinglyLinkedList<E>
         }
     }
 
-    public void insertLast(E element) {
+    public void insertLast(T element) {
         this.insertLast(this.createNode(element));
     }
 
-    public void insertLast(Node<E> node) {
+    public void insertLast(Node node) {
         if (this.created(node)) {
             if (this.isEmpty()) {
                 this.head = node;
@@ -147,7 +202,7 @@ public class SinglyLinkedList<E>
         }
     }
 
-    public void insertBefore(Node<E> target, Node<E> node) {
+    public void insertBefore(Node target, Node node) {
         if (this.created(target) && this.created(node)) {
             if (target.isFirst()) {
                 this.insertFirst(node);
@@ -163,7 +218,7 @@ public class SinglyLinkedList<E>
         }
     }
 
-    public void insertAfter(Node<E> target, Node<E> node) {
+    public void insertAfter(Node target, Node node) {
         if (this.created(target) && this.created(node)) {
             if (!target.isLast()) {
                 node.next = target.next;
@@ -176,7 +231,7 @@ public class SinglyLinkedList<E>
 
 
 
-    public void remove(Node<E> node) {
+    public void remove(Node node) {
         if (this.created(node)) {
             var nodeBefore = this.getNodeBefore(node);
 
@@ -197,7 +252,7 @@ public class SinglyLinkedList<E>
 
 
     //# Search Operations
-    public boolean search(E element) {
+    public boolean search(T element) {
         if (this.isEmpty()) {
             return false;
         }
@@ -215,7 +270,7 @@ public class SinglyLinkedList<E>
         return false;
     }
 
-    public boolean search(Node<E> node) {
+    public boolean search(Node node) {
         if (node == null || node.getLinkedList() != this) {
             return false;
         }
@@ -254,11 +309,11 @@ public class SinglyLinkedList<E>
 
     //# Overrides
     @Override
-    public @NotNull Iterator<E> iterator() {
+    public Iterator<T> iterator() {
         var head = this.getFirstNode();
 
-        return new Iterator<E>() {
-            private Node<E> cursor = head;
+        return new Iterator<>() {
+            private Node cursor = head;
 
             @Override
             public boolean hasNext() {
@@ -266,7 +321,7 @@ public class SinglyLinkedList<E>
             }
 
             @Override
-            public E next() {
+            public T next() {
                 var output = this.cursor.data;
                 this.cursor = this.cursor.next;
 
@@ -277,7 +332,7 @@ public class SinglyLinkedList<E>
 
 
     //# Helper-methods
-    private boolean created(Node<E> node) {
+    private boolean created(Node node) {
         if (node == null) {
             return false;
         }
@@ -285,7 +340,7 @@ public class SinglyLinkedList<E>
         return node.getLinkedList() == this;
     }
 
-    private Optional<Node<E>> getNodeBefore(Node<E> node) {
+    private Optional<Node> getNodeBefore(Node node) {
         if (this.created(node)) {
             var cursor = this.head;
 
@@ -301,7 +356,7 @@ public class SinglyLinkedList<E>
         return Optional.empty();
     }
 
-    private Optional<Node<E>> getNodeAfter(Node<E> node) {
+    private Optional<Node> getNodeAfter(Node node) {
         if (this.created(node)) {
             return Optional.of(node.next);
         }

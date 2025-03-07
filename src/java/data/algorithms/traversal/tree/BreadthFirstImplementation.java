@@ -54,13 +54,13 @@ void main() {
     // Current node we are looking at during iterations
     ArrayListNodeTree<String> node;
 
-    // 3) Go through each node in the stack as long as it is not empty
+    // 3) Go through each node in the queue as long as it is not empty
     while (!queue.isEmpty()) {
         node = queue.dequeue();
 
         System.out.printf("- %s%n", node.getValue());
 
-        // 4) Add the children of the popped element to the stack
+        // 4) Add the children of the popped element to the queue
         for (var childNode : node.getChildren()) {
             queue.enqueue(childNode);
         }

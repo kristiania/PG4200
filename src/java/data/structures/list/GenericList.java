@@ -1,8 +1,7 @@
 package data.structures.list;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Iterator;
+
 
 public class GenericList<E>
         implements ListImplementation<E>
@@ -46,7 +45,7 @@ public class GenericList<E>
     }
 
     @Override
-    public @NotNull Iterator<E> iterator() {
+    public Iterator<E> iterator() {
         return this.data.iterator();
     }
 }

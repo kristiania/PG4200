@@ -2,6 +2,8 @@ package data.structures.queue;
 
 import data.structures.list.DoublyLinkedList;
 
+import java.util.Deque;
+
 public class DoublyLinkedListDeque<E>
 {
     //# Fields

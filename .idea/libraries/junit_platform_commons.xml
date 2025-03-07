@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="junit.platform.commons" type="repository">
+    <properties maven-id="org.junit.platform:junit-platform-commons:1.11.2" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/junit-platform-commons-1.11.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/apiguardian-api-1.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

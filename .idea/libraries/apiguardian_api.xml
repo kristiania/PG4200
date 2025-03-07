@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="apiguardian.api" type="repository">
+    <properties maven-id="org.apiguardian:apiguardian-api:1.1.2" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/apiguardian-api-1.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

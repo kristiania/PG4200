@@ -1,6 +1,8 @@
 package data.structures.queue;
 
 import data.structures.list.SinglyLinkedList;
+import data.structures.queue.exceptions.UnderflowQueueException;
+import data.structures.queue.implementation.QueueImplementation;
 
 
 public class SinglyLinkedListLinearQueue<E>
@@ -24,7 +26,7 @@ public class SinglyLinkedListLinearQueue<E>
             return node.getData();
         }
 
-        throw new EmptyQueueException();
+        throw new UnderflowQueueException();
     }
 
 
@@ -35,7 +37,7 @@ public class SinglyLinkedListLinearQueue<E>
             return node.getData();
         }
 
-        throw new EmptyQueueException();
+        throw new UnderflowQueueException();
     }
 
     public int length() {
