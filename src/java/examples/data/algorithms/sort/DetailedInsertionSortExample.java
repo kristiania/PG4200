@@ -83,11 +83,11 @@ void printArray(int[] numbers) {
 }
 
 void printArray(String prefix, int[] numbers, String suffix) {
-    printf("%s%s%s", prefix, arrayToString(numbers), suffix);
+    printf("%s%s%s%n", prefix, arrayToString(numbers), suffix);
 }
 
 void printArray(String prefix, String array, String suffix) {
-    printf("%s%s%s", prefix, array, suffix);
+    printf("%s%s%s%n", prefix, array, suffix);
 }
 
 
@@ -126,7 +126,7 @@ String arrayToString(int[] array) {
     return Arrays.toString(array);
 }
 
-
+// TODO: finish up
 int getStartPositionOfNumberIndexInStringArray(String array, int i) {
     if (i == 0) {
         return 1;
@@ -155,18 +155,15 @@ void printSwapResult(int[] numbers, int pivot, int a, int b) {
             .replace(", ", ",   ")
     ;
 
-    array = array.substring(0, pivot - 1) + array.substring(pivot)
+    array = array.substring(0, pivot - 1) + array.substring(pivot).replaceFirst(
+                ",   %d,".formatted(numbers[a]),
+                ", < %d,".formatted(numbers[a])
+    );
 
-
-            .replaceFirst(
-                    ",   %d,".formatted(numbers[a]),
-                    ", < %d,".formatted(numbers[a])
-            )
-            .replace(
-                    "%d,   %d".formatted(numbers[a], numbers[b]),
-                    "%d <> %d".formatted(numbers[a], numbers[b])
-            )
-    ;
+    array = array.replace(
+                "%d,   %d".formatted(numbers[a], numbers[b]),
+                "%d <> %d".formatted(numbers[a], numbers[b])
+    );
 
     printFormattedArray("int[] numbers = ".length(),
             "<<", array, " < (pivot %03d) swapped %s with %s".formatted(
@@ -191,7 +188,7 @@ void printNoSwapResult(int[] numbers, int pivot, int x) {
     ;
 
     printFormattedArray("int[] numbers = ".length(),
-            "| ", array, " %s".formatted(x == pivot ? "| (pivot %03d)".formatted(pivot) : "|")
+            "| ", array, " %s".formatted(x == pivot ? "| (pivot %03d)%n".formatted(pivot) : "|")
     );
 }
 

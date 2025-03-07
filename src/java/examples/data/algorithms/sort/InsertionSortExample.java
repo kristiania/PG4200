@@ -1,66 +1,67 @@
-import static data.Helper.Array.arrayString;
+import data.Helper;
+
 import static data.Helper.Array.swap;
-import static data.Helper.IO.printlnf;
+import static data.Helper.Array.arrayString;
+import static data.Helper.IO.*;
 import static data.RNG.randomIntegers;
 
 
-/*
-    Insertion Sort Algorithm
-
-    1)  Start by setting a pivot as index 1 which splits linear structure into two, where:
-        - all indices left of pivot is sorted
-        - all indices right of pivot is unsorted
-
-    2)  Before each pivot-move to the right,
-        compare number at pivot with value at one index less:
-            if number at pivot is less than number to the left,
-                swap places, moving the lesser value to the left
-               as long as
-
-*/
+//---------------------------------------------------------------------------------------------------------------------
+//# Program
 void main() {
-    var numbers = randomIntegers(10, 0, 99);
+    int n = 10;
 
-    printlnf("int[] numbers = ", "%s", ";", arrayString(numbers));
-
-    quickSort(numbers);
-
-    printlnf(16, "", "%s", ";", 1, arrayString(numbers));
+    // Generate n random integers;
+    int[] numbers = randomIntegers(n, -50, 50);
 
 
-}
+    // State;
+    var pivot = 1;              // values to the left of index pivot are sorted;
+    var operations = 0;         // count of operations performed to insert
+                                // smaller numbers among sorted numbers;
+    var sortedIterations = 0;   // count of iterations of sorted numbers left of pivot;
 
-void quickSort(int[] numbers) {
-    quickSort(numbers, 0, numbers.length - 1 );
-}
 
-void quickSort(int[] numbers, int low, int high) {
-    if (low >= 0 && low < high) {
-        var pivot = partition(numbers, low, high);
+    var prefix = "int[] numbers = ";
+    var suffix = ";";
 
-        quickSort(numbers, low, pivot);
-        quickSort(numbers, pivot + 1, high);
-    }
-}
 
-int partition(int[] numbers, int low, int high) {
-    var pivot = numbers[low];
-    var left = low - 1;
-    var right = high + 1;
+    // Display current numbers before sorting algorithm is performed;
+    printlnf(prefix, arrayString(numbers), suffix);
 
-    while (true) {
-        do {
-            left = left + 1;
-        } while (numbers[left] < pivot);
 
-        do {
-            right = right - 1;
-        } while (numbers[right] > pivot);
+    // Perform insertion sort;
+    //? for each number[i] skipping first,
+    for (int i = pivot; i < n; i ++) {
 
-        if (left >= right) {
-            return right;
+        //? compare number with each element in with what is sorted left of pivot
+        for (int x = pivot; x > 0; x --) {
+
+            //? and if number we're currently at is smaller than sorted numbers
+            if (numbers[x] < numbers[x - 1]) {
+                //? a smaller number is swapped to the left (sorted),
+                //  further on as smaller the number is
+                swap(numbers, x, x - 1); operations ++;
+            }
+            else {
+                // Display current numbers after no swap operation was performed;
+
+                //? if no swap occurred, print result and break loop as pivot can be moved
+                break;
+            }
         }
 
-        swap(numbers, left, right);
+        sortedIterations ++;
+        pivot ++;
+
     }
+
+
+    // Display current numbers after sorting algorithm is done sorting;
+    printlnf(prefix, arrayString(numbers), suffix);
+
+
+    // Statistics;
+    printf("Operations performed: %d%n", operations);
+    printf("Iterations from pivot to possibly zero: %d%n", sortedIterations);
 }
