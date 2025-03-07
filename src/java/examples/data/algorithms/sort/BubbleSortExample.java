@@ -14,7 +14,7 @@ void main() {
 
 
     // Print out random numbers before being sorted
-    printf("int[] numbers[%s]", Arrays.toString(numbers));
+    printf("int[] numbers[%s]%n", Arrays.toString(numbers));
 
     // Perform bubble sort
     var iterations = 0;     // Amount of times we have gone through each number
@@ -56,5 +56,5 @@ void main() {
 
     // Print out numbers after being sorted
     printf("int[] numbers[%s]%n", Arrays.toString(numbers));
-    printf("Sorted after %d swap operations", operations);
+    printf("Sorted after %d swap operations%n", operations);
 }
