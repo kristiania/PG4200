@@ -2,6 +2,7 @@
 src/java/sandbox/**/*.java
 
 ### IntelliJ IDEA ###
+target/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
